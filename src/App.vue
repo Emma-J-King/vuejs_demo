@@ -74,10 +74,11 @@ export default defineComponent({
       Photo by <a href="https://unsplash.com/@magdaleny?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Magdalena Smolnicka</a> on <a href="https://unsplash.com/photos/close-up-photography-of-brown-horse-MySy-2bd930?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
   > </div>
     <div class="row image">
-      <br>
       <p> two</p>
       <br>
-      <img src="https://hips.hearstapps.com/hmg-prod/images/lionel-animals-to-follow-on-instagram-1568319926.jpg?crop=1.00xw:0.401xh;0,0.282xh&resize=640:*">
+      <img src="https://hips.hearstapps.com/hmg-prod/images/lionel-animals-to-follow-on-instagram-1568319926.jpg?" height="300px" width="300px">
+      <br>
+      Picture courtesy of Good Housekeeping
     
     </div>
   </div>
@@ -110,7 +111,8 @@ display: inline-flex;
 .containerimage{
     display: flex;
     flex-direction: row;
-    align-items: flex-start
+    align-items: flex-start;
+    
     }
 
 .img {
