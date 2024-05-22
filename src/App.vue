@@ -27,8 +27,8 @@ export default defineComponent({
       },
 
       {
-        "loc": "https://media.npr.org/assets/img/2022/12/09/duck-92ad2f54daa7edb182ba94daa1e6e7cfa04a070c.jpg?s=2600&c=85&f=webp",
-        "photographerCredit": "Ryan Sims"
+        "loc": "https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?q=80&w=1948&auto=format&fit",
+        "photographerCredit": "Karina Vorozheeva"
       },
 
       {
@@ -63,6 +63,21 @@ export default defineComponent({
       {
         "loc":"https://media.npr.org/assets/img/2022/12/09/squirreljump-28aafd8cd34db8db8604eb503509496394234554.jpg?",
         "photographerCredit":"Alex Pansier"
+      },
+      
+      {
+        "loc":"https://images.unsplash.com/photo-1618265341355-d0e2d1fdf26b?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "photographerCredit":"James Watson"
+      },
+
+      {
+        "loc":"https://media.istockphoto.com/id/1085112772/photo/funny-monkey-in-the-peruvian-jungle.jpg?s=612x612&w=0&k=20&c=kqhI7yj0_2d9h_Ignhn1EwaEkiIM48QS98LffEfMBbQ=",
+        "photographerCredit":"Damian S"
+      },
+       
+      {
+        "loc":"https://media.istockphoto.com/id/1175942160/photo/harbor-seal.jpg?s=2048x2048&w=is&k=20&c=cz2rFVTKn8Pgur2-qQjEaMvq5a-zMc-wtumIKicYmRA=",
+        "photographerCredit":"Mauribo"
       }
     ]);
     const index2 =ref(0);
@@ -213,7 +228,7 @@ text-align: center;
 }
 
 .image {
-margin: 150px;
+margin: 100px;
 }
 
 .smallimg {
