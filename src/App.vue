@@ -189,7 +189,9 @@ export default defineComponent({
 </template>
 
 <style>
-
+.body {
+  height: 100%;
+}
 .header {
   border-style: dotted;
   border-color: brown;
