@@ -15,6 +15,13 @@ export default defineComponent({
     const joke = ref("three");
     //create onclick image array
     // replace images within the array
+    const happy = ref([
+     "I think happiness is what makes you pretty. <strong> Happy people are beautiful</strong> Drew Barrymore",
+     "some text here",
+     "some text here 2",
+     "some text here 3",
+     "some text here 4"
+     ]);
     const images = ref([
       {
         "loc": "https://images.unsplash.com/photo-1551884831-bbf3cdc6469e?q=80&w=1948&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -82,7 +89,7 @@ export default defineComponent({
     ]);
     const index2 =ref(0);
     const imagechangeRight = function () {
-      // Decrement index
+      // decrement index
       index2.value--;
       // Catch too low a number
       if (index2.value < 0){
@@ -95,9 +102,42 @@ export default defineComponent({
 
       
       };
+      
+        // const index3 =ref(0);
+        // const handleFeelingChange = function () {
+        // // increment index
+        // happy.value ++;
+        // // Catch too high a number
+        // if (index3.value === happy.value.length){
+        //   index3.value = 0
+        // }
+        // if (happy.value < 0){
+        //   index3.value = happy.value.length - 1;
+        // }
+      // };
+        const feeling = ref('Happy');
+      const content = ref(happy.value[0]);
 
-     
-    
+      const updateContent = () => {
+        if (feeling.value === 'Happy') {
+          content.value = happy.value[index.value];
+        }
+        // Add more conditions for other feelings if needed
+      };
+      const currentHappyIndex = ref(0);
+      const currentHappyQuote = ref(happy.value[currentHappyIndex.value]);
+
+      const handleFeelingChange = (event) => {
+        if (event.target.value === "Happy") {
+          currentHappyIndex.value++;
+          if (currentHappyIndex.value === happy.value.length) {
+            currentHappyIndex.value = 0;
+          }
+          currentHappyQuote.value = happy.value[currentHappyIndex.value];
+        } else {
+          currentHappyQuote.value = null;
+        }
+      };
     onMounted(() => {
       startSlideshow();
       axios.get(
@@ -126,7 +166,12 @@ export default defineComponent({
       index,
       index2,
       images,
-      images2
+      images2,
+      feeling,
+      content,
+      updateContent,
+      handleFeelingChange,
+      currentHappyQuote
       
     }
   },
@@ -146,16 +191,18 @@ export default defineComponent({
   </header>
 
 <body>
-  
+  <p style="text-align: center;">We are here to lighten your workday, tune in with yourself and help to make those hours seem a little less long.</p>
+  <br>
   <div class="container cc">
       <div class="row c">
         <HelloWorld msg="Do you like jokes?" />
       </div>
-
+      
       <div class="jrow row c">
         {{ joke }}
       </div>
     </div>
+
   <div class="containerimage">
     <div class=" row image">
       <br>
@@ -167,9 +214,8 @@ export default defineComponent({
       <br>
       Picture credit goes to:
       <p>{{images[index].photographerCredit }}</p>
-     
-
     </div>
+
     <div class="row image">
       <br>
       <p> Or we can click for you here</p>
@@ -181,7 +227,27 @@ export default defineComponent({
       Picture credit goes to:
       <p>{{images2[index2].photographerCredit }}</p>
     </div>
+    
+    <div class="select">
+      <br>
+      How are you Feeling?
+      <select name="feeling" id="feeling">
+      <option value="Happy">Happy</option>
+      <option value="Whimsical">Whimsical</option>
+      <option value="Frustrated">Frustrated</option>
+      <option value="Uninspired">Uninspired</option>
+      </select>
+      <br>
+      <br>
+      <br>
+      <div>
+        
+        <p v-html="content" style="font-size: 35px; font-style:italic;" ></p>  
+      </div>
+    </div>
+
   </div>
+
   
 </body>
     
@@ -194,9 +260,8 @@ export default defineComponent({
 }
 .header {
   border-style: dotted;
-  border-color: brown;
-background-color: rgb(47, 47, 170);
-text-align: center;
+  background-color: rgb(47, 47, 170);
+  text-align: center;
 }
 
 .c{
@@ -205,6 +270,7 @@ text-align: center;
   padding:5px;
   display: flex;
   justify-content: center;
+  background-color: rgb(136, 192, 242);
 }
 .cc {
   border-style: solid;
@@ -230,16 +296,21 @@ text-align: center;
 }
 
 .image {
-margin: 100px;
+margin: 75px;
+
 }
 
-.smallimg {
-  height:300px;
-
-} 
-.span {
-  color: white; font-size: 40px; text-align: center;
+.select {
+  border-style: solid;
+  padding-bottom: 150px;
+  width:fit-content;
+  text-align: center;
+  background-color: aliceblue;
+  margin-top: 75px;
+  margin-left: 75px;
 }
+
+
 
 </style>
 
